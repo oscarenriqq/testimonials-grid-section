@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+:root {
+  --gap: 1.3em;
+  --num-cols-desktop: 4;
+  --num-cols-mobile: 1;
+
+  --moderate-violet: hsl(263, 55%, 52%);
+  --moderate-violet-border: hsl(263, 57%, 70%);
+  --grayish-blue: hsl(217, 19%, 35%);
+  --blackish-blue: hsl(219, 29%, 14%);
+  --white-color: hsl(0, 0%, 100%);
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+
+  --font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--light-grayish-blue);
+  padding-top: 2em;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(var(--num-cols-desktop), 1fr);
+  gap: var(--gap);
+}
+
+.card {
+  background-color: var(--white-color);
+  border-radius: 1em;
+  padding: 2em;
+  color: var(--blackish-blue);
+
+  box-shadow: 15px -3px 61px -35px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 15px -3px 61px -35px rgba(0,0,0,0.75);
+  -moz-box-shadow: 15px -3px 61px -35px rgba(0,0,0,0.75);
+}
+
+.card__header {
+  display: flex;
+  gap: var(--gap);
+}
+
+.card__img {
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+}
+
+.card__student {
+  list-style: none;
+}
+
+.card .card__student__name {
+  font-size: 1em;
+}
+
+.card .card__student__status {
+  font-size: 0.8em;
+  opacity: .5;
+}
+
+.card__resume {
+  margin-top: 0.5em;
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+.card__testimonial {
+  margin-top: 1.5em;
+  opacity: .7;
+}
+
+.attribution {
+  text-align: center;
+  margin-top: 3em;
+}
+
+/* Modificadores */
+.card--purple {
+  color: var(--white-color);
+  background-color: var(--moderate-violet);
+  background-image: url(./images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: 80% 0;
+}
+
+.card--grayish-blue {
+  color: var(--white-color);
+  background-color: var(--grayish-blue);
+}
+
+.card--blackish-blue {
+  color: var(--white-color);
+  background-color: var(--blackish-blue);
+}
+
+.card--large-height {
+  grid-row: span 2;
+}
+
+.card--large-width {
+  grid-column: span 2;
+}
+
+.card__img--border-purple {
+  border: 0.15em solid var(--moderate-violet-border);
+}
+
+@media (max-width: 376px) {
+
+  .container {
+    padding: 0 1em;
+    grid-template-columns: var(--num-cols-mobile) 1fr;
+  }
+
+  .card {
+    text-align: left;
+  }
+
+  .card--large-height {
+    grid-row: span 1;
+    order: 1;
+  }
+
+  .card--large-width {
+    grid-column: span 1;
+  }
+}
